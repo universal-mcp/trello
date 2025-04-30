@@ -33,7 +33,7 @@ source .venv/bin/activate
 ### 3. Start the MCP Inspector
 Use the MCP CLI to start the application in development mode.
 ```bash
-mcp dev src/universal mcp trello/mcp.py
+mcp dev src/universal_mcp_trello/mcp.py
 ```
 The MCP inspector should now be running. Check the console output for the exact address and port.
 
@@ -50,13 +50,12 @@ This is automatically generated from OpenAPI schema for the Universal Mcp Trello
 
 | Tool | Description |
 |------|-------------|
-| `get1_boards_id` | GET /1/boards/{id}. Get Boards |
-| `get1_boards_id_lists` | GET /1/boards/{id}/lists. GET /1/boards/{id}/lists |
-| `post1_cards` | POST /1/cards. POST /1/cards |
-| `get1_cards_id` | GET /1/cards/{id}. GET /1/cards/{id} |
-| `put1_cards_id` | PUT /1/cards/{id}. PUT /1/cards/{id} |
-| `delete1_cards_id` | DELETE /1/cards/{id}. DELETE /1/cards/{id} |
-
+| `get1_boards_id` | Retrieve board details by ID from the API endpoint. |
+| `get1_boards_id_lists` | Retrieves lists for a specific board from the Trello API using its ID. |
+| `post1_cards` | Creates a new card by sending a POST request to the /1/cards endpoint. |
+| `get1_cards_id` | Retrieve card details by ID using the API endpoint. |
+| `put1_cards_id` | Updates a card by making a PUT request to the /1/cards/{id} endpoint with optional description, name, key, and token parameters. |
+| `delete1_cards_id` | Deletes a card with the specified ID by sending a DELETE request including key and token parameters. |
 
 ## 📁 Project Structure
 
@@ -64,7 +63,7 @@ The generated project has a standard layout:
 ```
 .
 ├── src/                  # Source code directory
-│   └── universal mcp trello/
+│   └── universal_mcp_trello/
 │       ├── __init__.py
 │       └── mcp.py        # Server is launched here
 │       └── app.py        # Application tools are defined here

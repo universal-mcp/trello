@@ -8,7 +8,7 @@ class TrelloApp(APIApplication):
     def __init__(self, integration: Integration = None, **kwargs) -> None:
         # Assuming {{baseURL}} represents the root like https://api.trello.com/1/
         # The specific resource paths (boards, cards) are added in each method based on the schema's server definitions
-        super().__init__(name='trelloapp', integration=integration, **kwargs)
+        super().__init__(name='trello', integration=integration, **kwargs)
         self.base_url = "{{baseURL}}"
 
 

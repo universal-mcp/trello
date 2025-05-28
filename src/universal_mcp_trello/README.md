@@ -1,10 +1,10 @@
-# Trello MCP Server
+# TrelloApp MCP Server
 
-An MCP Server for the Trello API.
+An MCP Server for the TrelloApp API.
 
 ## 🛠️ Tool List
 
-This is automatically generated from OpenAPI schema for the Trello API.
+This is automatically generated from OpenAPI schema for the TrelloApp API.
 
 
 | Tool | Description |

@@ -56,7 +56,7 @@ class TrelloApp(APIApplication):
             requests.HTTPError: Raised if the API request fails (non-2xx status code).
 
         Tags:
-            board, lists, get, api, trello, important
+            board, lists, get, api, trello
         """
         # Schema server: {{baseURL}}boards, Schema path: /rAIRIVAI/lists
         path = "boards/rAIRIVAI/lists"
@@ -89,7 +89,7 @@ class TrelloApp(APIApplication):
             requests.exceptions.HTTPError: Raised if the HTTP request encounters any issues, such as invalid status codes.
 
         Tags:
-            create, card, management, important
+            create, card, management
         """
         request_body = {
             "desc": desc,
@@ -126,7 +126,7 @@ class TrelloApp(APIApplication):
             HTTPError: Raised if the API request fails with a non-2xx status code (e.g., 404 for invalid ID or 401 for invalid credentials).
 
         Tags:
-            cards, get, api, authentication, important
+            cards, get, api, authentication
         """
         # Schema server: {{baseURL}}cards, Schema path: /64513f05ce82b6b80d0cf85e
         path = "cards/64513f05ce82b6b80d0cf85e"
@@ -157,7 +157,7 @@ class TrelloApp(APIApplication):
             requests.HTTPError: If the server returns a status code that indicates an HTTP error.
 
         Tags:
-            update, cards, management, important
+            update, cards, management
         """
         request_body = {
             "desc": desc,
@@ -192,7 +192,7 @@ class TrelloApp(APIApplication):
             HTTPError: If the HTTP request fails (4xx/5xx status codes)
 
         Tags:
-            cards, delete, important
+            cards, delete
         """
         # Schema server: {{baseURL}}cards, Schema path: /64513b087161f7d443491538
         path = "cards/64513b087161f7d443491538"

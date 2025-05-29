@@ -1288,7 +1288,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def update_board_sidebar_pref(self, id: str, value: bool) -> Any:
+    def update_board_sidebar_act_pref(self, id: str, value: bool) -> Any:
         """
         Update showSidebarActivity Pref on a Board
 
@@ -5268,7 +5268,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_custom_board_backgrounds_by_id(self, id: str, idBackground: str) -> dict[str, Any]:
+    def get_custom_board_backgrounds_by_idback(self, id: str, idBackground: str) -> dict[str, Any]:
         """
         Get custom Board Background of Member
 
@@ -6913,7 +6913,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def deactivate_member(self, id: str, idMember: str, value: bool) -> Any:
+    def deactivate_member_org(self, id: str, idMember: str, value: bool) -> Any:
         """
         Deactivate or reactivate a member of an Organization
 
@@ -7807,7 +7807,7 @@ class TrelloApp(APIApplication):
             self.update_board_email_position,
             self.update_board_my_prefs_id_email_list,
             self.update_board_sidebar_pref,
-            self.update_board_sidebar_pref,
+            self.update_board_sidebar_act_pref,
             self.update_board_sidebar_actions,
             self.update_board_prefs_show_members,
             self.post_boards,
@@ -7937,7 +7937,7 @@ class TrelloApp(APIApplication):
             self.get_members_id_cards,
             self.get_custom_board_backgrounds_by_id,
             self.set_custom_board_backgrounds,
-            self.get_custom_board_backgrounds_by_id,
+            self.get_custom_board_backgrounds_by_idback,
             self.update_member_custom_board_background,
             self.delete_custom_background_by_id,
             self.get_members_id_customemoji,
@@ -7992,7 +7992,7 @@ class TrelloApp(APIApplication):
             self.post_organizations_id_tags,
             self.update_member_type,
             self.remove_organization_member,
-            self.deactivate_member,
+            self.deactivate_member_org,
             self.post_organizations_id_logo,
             self.delete_organizations_id_logo,
             self.delete_organization_member_all,

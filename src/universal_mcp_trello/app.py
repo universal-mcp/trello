@@ -5268,7 +5268,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_custom_board_backgrounds_by_idback(self, id: str, idBackground: str) -> dict[str, Any]:
+    def get_custom_board_backgrounds_by_id_back(self, id: str, idBackground: str) -> dict[str, Any]:
         """
         Get custom Board Background of Member
 
@@ -7937,7 +7937,7 @@ class TrelloApp(APIApplication):
             self.get_members_id_cards,
             self.get_custom_board_backgrounds_by_id,
             self.set_custom_board_backgrounds,
-            self.get_custom_board_backgrounds_by_idback,
+            self.get_custom_board_backgrounds_by_id_back,
             self.update_member_custom_board_background,
             self.delete_custom_background_by_id,
             self.get_members_id_customemoji,

@@ -27,6 +27,9 @@ class TrelloApp(APIApplication):
         Raises:
             HTTPError: Raised when the API request fails (e.g., non-2XX status code).
             JSONDecodeError: Raised if the response body cannot be parsed as JSON.
+            
+        Tags:
+            actions, important
         """
         if id is None:
             raise ValueError("Missing required parameter 'id'.")
@@ -2117,6 +2120,9 @@ class TrelloApp(APIApplication):
         Raises:
             HTTPError: Raised when the API request fails (e.g., non-2XX status code).
             JSONDecodeError: Raised if the response body cannot be parsed as JSON.
+            
+        Tags:
+            card, important 
         """
         if id is None:
             raise ValueError("Missing required parameter 'id'.")
@@ -7341,6 +7347,9 @@ class TrelloApp(APIApplication):
         Raises:
             HTTPError: Raised when the API request fails (e.g., non-2XX status code).
             JSONDecodeError: Raised if the response body cannot be parsed as JSON.
+            
+        Tags:
+            Search, important
         """
         url = f"{self.base_url}/search"
         query_params = {k: v for k, v in [('query', query), ('idBoards', idBoards), ('idOrganizations', idOrganizations), ('idCards', idCards), ('modelTypes', modelTypes), ('board_fields', board_fields), ('boards_limit', boards_limit), ('board_organization', board_organization), ('card_fields', card_fields), ('cards_limit', cards_limit), ('cards_page', cards_page), ('card_board', card_board), ('card_list', card_list), ('card_members', card_members), ('card_stickers', card_stickers), ('card_attachments', card_attachments), ('organization_fields', organization_fields), ('organizations_limit', organizations_limit), ('member_fields', member_fields), ('members_limit', members_limit), ('partial', partial)] if v is not None}

@@ -181,7 +181,7 @@ This is automatically generated from OpenAPI schema for the TrelloApp API.
 | `get_members_id_cards` | Get Cards the Member is on |
 | `get_custom_board_backgrounds_by_id` | Get a Member's custom Board Backgrounds |
 | `set_custom_board_backgrounds` | Create a new custom Board Background |
-| `get_custom_board_backgrounds_by_idback` | Get custom Board Background of Member |
+| `get_custom_board_backgrounds_by_id_back` | Get custom Board Background of Member |
 | `update_member_custom_board_background` | Update custom Board Background of Member |
 | `delete_custom_background_by_id` | Delete custom Board Background of Member |
 | `get_members_id_customemoji` | Get a Member's customEmojis |

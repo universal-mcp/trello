@@ -4,7 +4,7 @@ from universal_mcp.integrations import Integration
 
 class TrelloApp(APIApplication):
     def __init__(self, integration: Integration = None, **kwargs) -> None:
-        super().__init__(name='trelloapp', integration=integration, **kwargs)
+        super().__init__(name='trello', integration=integration, **kwargs)
         self.base_url = "https://api.trello.com/1"
 
     def get_actions_id(self, id: str, display: Optional[bool] = None, entities: Optional[bool] = None, fields: Optional[str] = None, member: Optional[bool] = None, member_fields: Optional[str] = None, memberCreator: Optional[bool] = None, memberCreator_fields: Optional[str] = None) -> Any:

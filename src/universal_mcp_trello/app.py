@@ -4,7 +4,7 @@ from universal_mcp.integrations import Integration
 
 class TrelloApp(APIApplication):
     def __init__(self, integration: Integration = None, **kwargs) -> None:
-        super().__init__(name='trelloapp', integration=integration, **kwargs)
+        super().__init__(name='trello', integration=integration, **kwargs)
         self.base_url = "https://api.trello.com/1"
 
     def get_actions_id(self, id: str, display: Optional[bool] = None, entities: Optional[bool] = None, fields: Optional[str] = None, member: Optional[bool] = None, member_fields: Optional[str] = None, memberCreator: Optional[bool] = None, memberCreator_fields: Optional[str] = None) -> Any:
@@ -353,7 +353,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_actns_idctn_rctns(self, idAction: str, shortName: Optional[str] = None, skinVariation: Optional[str] = None, native: Optional[str] = None, unified: Optional[str] = None) -> Any:
+    def create_reaction_to_action(self, idAction: str, shortName: Optional[str] = None, skinVariation: Optional[str] = None, native: Optional[str] = None, unified: Optional[str] = None) -> Any:
         """
         Create Reaction for Action
 
@@ -392,7 +392,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_actns_idctn_rctns_id(self, idAction: str, id: str, member: Optional[bool] = None, emoji: Optional[bool] = None) -> Any:
+    def get_action_reaction_by_id(self, idAction: str, id: str, member: Optional[bool] = None, emoji: Optional[bool] = None) -> Any:
         """
         Get Action's Reaction
 
@@ -424,7 +424,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_actns_idctn_rctns_id(self, idAction: str, id: str) -> Any:
+    def delete_reaction_by_id_action(self, idAction: str, id: str) -> Any:
         """
         Delete Action's Reaction
 
@@ -454,7 +454,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_actns_idctn_rctnsmmry(self, idAction: str) -> Any:
+    def get_action_reactions_summary(self, idAction: str) -> Any:
         """
         List Action's summary of Reactions
 
@@ -1168,7 +1168,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_mmbrshps_idmmbrshp(self, id: str, idMembership: str, type: str, member_fields: Optional[str] = None) -> Any:
+    def update_membership(self, id: str, idMembership: str, type: str, member_fields: Optional[str] = None) -> Any:
         """
         Update Membership of Member on a Board
 
@@ -1201,7 +1201,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_emlpstn(self, id: str, value: str) -> Any:
+    def update_board_email_position(self, id: str, value: str) -> Any:
         """
         Update emailPosition Pref on a Board
 
@@ -1230,7 +1230,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_idmllst(self, id: str, value: str) -> Any:
+    def update_board_my_prefs_id_email_list(self, id: str, value: str) -> Any:
         """
         Update idEmailList Pref on a Board
 
@@ -1259,7 +1259,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_shwsdbr(self, id: str, value: bool) -> Any:
+    def update_board_sidebar_pref(self, id: str, value: bool) -> Any:
         """
         Update showSidebar Pref on a Board
 
@@ -1288,7 +1288,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_shwsdbr(self, id: str, value: bool) -> Any:
+    def update_board_sidebar_pref(self, id: str, value: bool) -> Any:
         """
         Update showSidebarActivity Pref on a Board
 
@@ -1317,7 +1317,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_shwsdbr(self, id: str, value: bool) -> Any:
+    def update_board_sidebar_actions(self, id: str, value: bool) -> Any:
         """
         Update showSidebarBoardActions Pref on a Board
 
@@ -1346,7 +1346,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_brds_id_myprfs_shwsdbr(self, id: str, value: bool) -> Any:
+    def update_board_prefs_show_members(self, id: str, value: bool) -> Any:
         """
         Update showSidebarMembers Pref on a Board
 
@@ -1416,7 +1416,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_brds_id_clndrky_gnrte(self, id: str) -> Any:
+    def generate_calendar_key(self, id: str) -> Any:
         """
         Create a calendarKey for a Board
 
@@ -1444,7 +1444,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_brds_id_emlky_gnrte(self, id: str) -> Any:
+    def generate_board_email_key(self, id: str) -> Any:
         """
         Create a emailKey for a Board
 
@@ -1923,7 +1923,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_crds_id_attchmnts_idtt(self, id: str, idAttachment: str, fields: Optional[List[Any]] = None) -> list[Any]:
+    def get_attachment_by_id(self, id: str, idAttachment: str, fields: Optional[List[Any]] = None) -> list[Any]:
         """
         Get an Attachment on a Card
 
@@ -1954,7 +1954,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def dltd_crds_id_attchmnts_idt(self, id: str, idAttachment: str) -> Any:
+    def delete_attachment_by_id(self, id: str, idAttachment: str) -> Any:
         """
         Delete an Attachment on a Card
 
@@ -2102,7 +2102,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_crds_id_chcktm_idchcktm(self, id: str, idCheckItem: str, fields: Optional[str] = None) -> Any:
+    def check_card_item(self, id: str, idCheckItem: str, fields: Optional[str] = None) -> Any:
         """
         Get checkItem on a Card
 
@@ -2133,7 +2133,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_crds_id_chcktm_idchcktm(self, id: str, idCheckItem: str, name: Optional[str] = None, state: Optional[str] = None, idChecklist: Optional[str] = None, pos: Optional[Any] = None, due: Optional[str] = None, dueReminder: Optional[float] = None, idMember: Optional[str] = None) -> Any:
+    def update_card_check_item(self, id: str, idCheckItem: str, name: Optional[str] = None, state: Optional[str] = None, idChecklist: Optional[str] = None, pos: Optional[Any] = None, due: Optional[str] = None, dueReminder: Optional[float] = None, idMember: Optional[str] = None) -> Any:
         """
         Update a checkItem on a Card
 
@@ -2171,7 +2171,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_chcktm_idchcktm(self, id: str, idCheckItem: str) -> Any:
+    def delete_card_check_item(self, id: str, idCheckItem: str) -> Any:
         """
         Delete checkItem on a Card
 
@@ -2402,7 +2402,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_crds_id_stckrs_idstckr(self, id: str, idSticker: str, fields: Optional[str] = None) -> Any:
+    def get_card_sticker(self, id: str, idSticker: str, fields: Optional[str] = None) -> Any:
         """
         Get a Sticker on a Card
 
@@ -2433,7 +2433,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_stckrs_idstckr(self, id: str, idSticker: str) -> Any:
+    def delete_sticker_by_id(self, id: str, idSticker: str) -> Any:
         """
         Delete a Sticker on a Card
 
@@ -2463,7 +2463,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_crds_id_stckrs_idstckr(self, id: str, idSticker: str, top: float, left: float, zIndex: int, rotate: Optional[float] = None) -> Any:
+    def update_card_sticker_by_id_sticker(self, id: str, idSticker: str, top: float, left: float, zIndex: int, rotate: Optional[float] = None) -> Any:
         """
         Update a Sticker on a Card
 
@@ -2498,7 +2498,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_crds_id_actns_idctn_cmmnts(self, id: str, idAction: str, text: str) -> Any:
+    def update_card_action_comment(self, id: str, idAction: str, text: str) -> Any:
         """
         Update Comment Action on a Card
 
@@ -2530,7 +2530,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_actns_id_cmmnts(self, id: str, idAction: str) -> Any:
+    def delete_comment_action(self, id: str, idAction: str) -> Any:
         """
         Delete a comment on a Card
 
@@ -2560,7 +2560,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_crds_idcrd_cstmfld_idc(self, idCard: str, idCustomField: str, value: Optional[dict[str, Any]] = None, idValue: Optional[str] = None) -> Any:
+    def update_card_custom_field_item(self, idCard: str, idCustomField: str, value: Optional[dict[str, Any]] = None, idValue: Optional[str] = None) -> Any:
         """
         Update Custom Field item on Card
 
@@ -2775,7 +2775,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_crds_id_mrkssctdntfctnsrd(self, id: str) -> Any:
+    def mark_notifications_read(self, id: str) -> Any:
         """
         Mark a Card's Notifications as read
 
@@ -2803,7 +2803,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_idlbls_idlbl(self, id: str, idLabel: str) -> Any:
+    def delete_card_id_label_by_id(self, id: str, idLabel: str) -> Any:
         """
         Remove a Label from a Card
 
@@ -2863,7 +2863,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_mmbrsvtd_idmmbr(self, id: str, idMember: str) -> Any:
+    def delete_card_voter(self, id: str, idMember: str) -> Any:
         """
         Remove a Member's Vote on a Card
 
@@ -2893,7 +2893,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_crds_idcrd_chcklst_idc(self, idCard: str, idChecklist: str, idCheckItem: str, pos: Optional[Any] = None) -> dict[str, Any]:
+    def update_check_item(self, idCard: str, idChecklist: str, idCheckItem: str, pos: Optional[Any] = None) -> dict[str, Any]:
         """
         Update Checkitem on Checklist on Card
 
@@ -2928,7 +2928,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_crds_id_chcklsts_id(self, id: str, idChecklist: str) -> Any:
+    def delete_checklist_by_id(self, id: str, idChecklist: str) -> Any:
         """
         Delete a Checklist on a Card
 
@@ -3255,7 +3255,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_chcklsts_id_chcktms_id(self, id: str, idCheckItem: str, fields: Optional[str] = None) -> Any:
+    def get_check_item_detail(self, id: str, idCheckItem: str, fields: Optional[str] = None) -> Any:
         """
         Get a Checkitem on a Checklist
 
@@ -3286,7 +3286,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_chcklsts_id_chcktms(self, id: str, idCheckItem: str) -> Any:
+    def delete_checklist_item_by_id(self, id: str, idCheckItem: str) -> Any:
         """
         Delete Checkitem from Checklist
 
@@ -3504,7 +3504,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_cstmflds_optns_idcstmf(self, id: str, idCustomFieldOption: str) -> Any:
+    def get_custom_field_option_by_id(self, id: str, idCustomFieldOption: str) -> Any:
         """
         Get Option of Custom Field dropdown
 
@@ -3534,7 +3534,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_cstmflds_optns_idcs(self, id: str, idCustomFieldOption: str) -> Any:
+    def delete_custom_field_option(self, id: str, idCustomFieldOption: str) -> Any:
         """
         Delete Option of Custom Field dropdown
 
@@ -3788,7 +3788,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_mmbrs_idmmbr(self, id: str, idMember: str, fields: Optional[str] = None, organization_fields: Optional[str] = None, board_fields: Optional[str] = None) -> dict[str, Any]:
+    def get_member_details(self, id: str, idMember: str, fields: Optional[str] = None, organization_fields: Optional[str] = None, board_fields: Optional[str] = None) -> dict[str, Any]:
         """
         Get a Member of Enterprise
 
@@ -3821,7 +3821,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_trnsfrrble(self, id: str, idOrganization: str) -> dict[str, Any]:
+    def get_organization_transfer(self, id: str, idOrganization: str) -> dict[str, Any]:
         """
         Get whether an organization can be transferred to an enterprise.
 
@@ -3851,7 +3851,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_trnsfrrble(self, id: str, idOrganizations: str) -> list[Any]:
+    def list_enterprise_transferrables_by_org_ids(self, id: str, idOrganizations: str) -> list[Any]:
         """
         Get a bulk list of organizations that can be transferred to an enterprise.
 
@@ -3881,7 +3881,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_entrprss_id_entrprsjnr(self, id: str, idOrganizations: List[Any]) -> Any:
+    def bulk_join_enterprise_requests(self, id: str, idOrganizations: List[Any]) -> Any:
         """
         Decline enterpriseJoinRequests from one organization or a bulk list of organizations.
 
@@ -3910,7 +3910,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_clmblrgnztns(self, id: str, limit: Optional[int] = None, cursor: Optional[str] = None, name: Optional[str] = None, activeSince: Optional[str] = None, inactiveSince: Optional[str] = None) -> dict[str, Any]:
+    def list_claimable_orgs(self, id: str, limit: Optional[int] = None, cursor: Optional[str] = None, name: Optional[str] = None, activeSince: Optional[str] = None, inactiveSince: Optional[str] = None) -> dict[str, Any]:
         """
         Get ClaimableOrganizations of an Enterprise
 
@@ -3942,7 +3942,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_pndngrgnztns(self, id: str, activeSince: Optional[str] = None, inactiveSince: Optional[str] = None) -> list[Any]:
+    def get_pending_organizations(self, id: str, activeSince: Optional[str] = None, inactiveSince: Optional[str] = None) -> list[Any]:
         """
         Get PendingOrganizations of an Enterprise
 
@@ -4000,7 +4000,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_entrprss_id_orgnztns(self, id: str, idOrganization: str) -> list[Any]:
+    def put_enterprise_organizations_by_id(self, id: str, idOrganization: str) -> list[Any]:
         """
         Transfer an Organization to an Enterprise.
 
@@ -4029,7 +4029,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_entrprss_id_mmbrs_idmm(self, id: str, idMember: str, value: bool) -> dict[str, Any]:
+    def update_enterprise_member_licensed(self, id: str, idMember: str, value: bool) -> dict[str, Any]:
         """
         Update a Member's licensed status
 
@@ -4061,7 +4061,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def entrprss_id_mmbrs_idmmbr_d(self, id: str, idMember: str, value: bool, fields: Optional[str] = None, organization_fields: Optional[str] = None, board_fields: Optional[str] = None) -> Any:
+    def deactivate_member(self, id: str, idMember: str, value: bool, fields: Optional[str] = None, organization_fields: Optional[str] = None, board_fields: Optional[str] = None) -> Any:
         """
         Deactivate a Member of an Enterprise.
 
@@ -4096,7 +4096,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_entrprss_id_admns_idmmbr(self, id: str, idMember: str) -> Any:
+    def update_admin_member(self, id: str, idMember: str) -> Any:
         """
         Update Member to be admin of Enterprise
 
@@ -4127,7 +4127,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def entrprss_id_orgnztns_idmmbr(self, id: str, idMember: str) -> Any:
+    def delete_enterprise_admin_by_id(self, id: str, idMember: str) -> Any:
         """
         Remove a Member as admin from Enterprise.
 
@@ -4157,7 +4157,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_entrprss_id_orgnztn(self, id: str, idOrg: str) -> Any:
+    def delete_organization_by_id_and_org_id(self, id: str, idOrg: str) -> Any:
         """
         Delete an Organization from an Enterprise.
 
@@ -4187,7 +4187,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_entrprss_id_orgnztns_b(self, id: str, idOrganizations: str) -> Any:
+    def get_bulk_organizations_by_ids(self, id: str, idOrganizations: str) -> Any:
         """
         Bulk accept a set of organizations to an Enterprise.
 
@@ -4824,7 +4824,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_brdbckgrnds(self, id: str, filter: Optional[str] = None) -> list[Any]:
+    def get_board_backgrounds_by_id(self, id: str, filter: Optional[str] = None) -> list[Any]:
         """
         Get Member's custom Board backgrounds
 
@@ -4852,7 +4852,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_mmbrs_id_brdbckgrnds(self, id: str, file: bytes) -> list[Any]:
+    def create_board_background(self, id: str, file: bytes) -> list[Any]:
         """
         Upload new boardBackground for Member
 
@@ -4881,7 +4881,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_brdbckgrnds_i(self, id: str, idBackground: str, fields: Optional[str] = None) -> dict[str, Any]:
+    def get_member_board_backgrounds(self, id: str, idBackground: str, fields: Optional[str] = None) -> dict[str, Any]:
         """
         Get a boardBackground of a Member
 
@@ -4912,7 +4912,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_brdbckgrnds_i(self, id: str, idBackground: str, brightness: Optional[str] = None, tile: Optional[bool] = None) -> dict[str, Any]:
+    def update_board_background(self, id: str, idBackground: str, brightness: Optional[str] = None, tile: Optional[bool] = None) -> dict[str, Any]:
         """
         Update a Member's custom Board background
 
@@ -4945,7 +4945,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_mmbrs_id_brdbckgrnd(self, id: str, idBackground: str) -> Any:
+    def delete_board_background_by_id(self, id: str, idBackground: str) -> Any:
         """
         Delete a Member's custom Board background
 
@@ -5032,7 +5032,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_brdstrs_idstr(self, id: str, idStar: str) -> dict[str, Any]:
+    def get_board_star_by_id(self, id: str, idStar: str) -> dict[str, Any]:
         """
         Get a boardStar of Member
 
@@ -5062,7 +5062,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_brdstrs_idstr(self, id: str, idStar: str, pos: Optional[Any] = None) -> Any:
+    def update_board_star_position(self, id: str, idStar: str, pos: Optional[Any] = None) -> Any:
         """
         Update the position of a boardStar of Member
 
@@ -5094,7 +5094,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_mmbrs_id_brdstrs_idstr(self, id: str, idStar: str) -> Any:
+    def delete_board_star(self, id: str, idStar: str) -> Any:
         """
         Delete Star for Board
 
@@ -5212,7 +5212,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_cstmbrdbckgrnds(self, id: str) -> list[Any]:
+    def get_custom_board_backgrounds_by_id(self, id: str) -> list[Any]:
         """
         Get a Member's custom Board Backgrounds
 
@@ -5239,7 +5239,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def mmbrsdcstmbrdbckgrnds(self, id: str, file: bytes) -> dict[str, Any]:
+    def set_custom_board_backgrounds(self, id: str, file: bytes) -> dict[str, Any]:
         """
         Create a new custom Board Background
 
@@ -5268,7 +5268,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_cstmbrdbckgrn(self, id: str, idBackground: str) -> dict[str, Any]:
+    def get_custom_board_backgrounds_by_id(self, id: str, idBackground: str) -> dict[str, Any]:
         """
         Get custom Board Background of Member
 
@@ -5298,7 +5298,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_cstmbrdbckgrn(self, id: str, idBackground: str, brightness: Optional[str] = None, tile: Optional[bool] = None) -> dict[str, Any]:
+    def update_member_custom_board_background(self, id: str, idBackground: str, brightness: Optional[str] = None, tile: Optional[bool] = None) -> dict[str, Any]:
         """
         Update custom Board Background of Member
 
@@ -5331,7 +5331,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_mmbrs_id_cstmbrdbck(self, id: str, idBackground: str) -> Any:
+    def delete_custom_background_by_id(self, id: str, idBackground: str) -> Any:
         """
         Delete custom Board Background of Member
 
@@ -5505,7 +5505,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_cstmstckrs_id(self, id: str, idSticker: str, fields: Optional[str] = None) -> dict[str, Any]:
+    def get_member_custom_sticker_by_id(self, id: str, idSticker: str, fields: Optional[str] = None) -> dict[str, Any]:
         """
         Get a Member's custom Sticker
 
@@ -5536,7 +5536,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_mmbrs_id_cstmstckrs(self, id: str, idSticker: str) -> Any:
+    def delete_member_custom_sticker_by_id(self, id: str, idSticker: str) -> Any:
         """
         Delete a Member's custom Sticker
 
@@ -5634,7 +5634,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_orgnztnsnvtd(self, id: str, fields: Optional[str] = None) -> list[Any]:
+    def get_member_organizations_invited(self, id: str, fields: Optional[str] = None) -> list[Any]:
         """
         Get Organizations a Member has been invited to
 
@@ -5720,7 +5720,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_svdsrchs_idsrch(self, id: str, idSearch: str) -> dict[str, Any]:
+    def get_saved_searches_by_id(self, id: str, idSearch: str) -> dict[str, Any]:
         """
         Get a saved search
 
@@ -5750,7 +5750,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_svdsrchs_idsrch(self, id: str, idSearch: str, name: Optional[str] = None, query: Optional[str] = None, pos: Optional[str] = None) -> dict[str, Any]:
+    def update_member_saved_search(self, id: str, idSearch: str, name: Optional[str] = None, query: Optional[str] = None, pos: Optional[str] = None) -> dict[str, Any]:
         """
         Update a saved search
 
@@ -5784,7 +5784,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_mmbrs_id_svdsrchs_i(self, id: str, idSearch: str) -> Any:
+    def delete_saved_search(self, id: str, idSearch: str) -> Any:
         """
         Delete a saved search
 
@@ -5871,7 +5871,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def post_mmbrs_id_ontmmssgsdsmssd(self, id: str, value: str) -> Any:
+    def post_member_one_time_messages_dismissed(self, id: str, value: str) -> Any:
         """
         Dismiss a message for Member
 
@@ -5900,7 +5900,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_ntfctnchnnlsttngs(self, id: str) -> list[Any]:
+    def get_member_notifications_channel_settings(self, id: str) -> list[Any]:
         """
         Get a Member's notification channel settings
 
@@ -5927,7 +5927,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_ntfctnchnnlst(self, id: str, channel: str, blockedKeys: Any) -> Any:
+    def update_notification_channel_settings(self, id: str, channel: str, blockedKeys: Any) -> Any:
         """
         Update blocked notification keys of Member on a channel
 
@@ -5962,7 +5962,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_mmbrs_id_ntfctnchnnlst(self, id: str, channel: str) -> Any:
+    def get_member_notification_channel_settings(self, id: str, channel: str) -> Any:
         """
         Get blocked notification keys of Member on this channel
 
@@ -5992,7 +5992,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_ntfctnchnnlst(self, id: str, channel: str, blockedKeys: Any) -> Any:
+    def update_member_notification_channel_settings(self, id: str, channel: str, blockedKeys: Any) -> Any:
         """
         Update blocked notification keys of Member on a channel
 
@@ -6028,7 +6028,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_mmbrs_id_ntfctnchnnlsttngs(self, id: str, channel: str, blockedKeys: str) -> Any:
+    def update_notification_settings(self, id: str, channel: str, blockedKeys: str) -> Any:
         """
         Update blocked notification keys of Member on a channel
 
@@ -6330,7 +6330,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_ntfctns_id_mmbrcrtr(self, id: str, fields: Optional[str] = None) -> Any:
+    def get_member_creator_details(self, id: str, fields: Optional[str] = None) -> Any:
         """
         Get the Member who created the Notification
 
@@ -6358,7 +6358,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_ntfctns_id_orgnztn(self, id: str, fields: Optional[str] = None) -> Any:
+    def get_notification_org(self, id: str, fields: Optional[str] = None) -> Any:
         """
         Get a Notification's associated Organization
 
@@ -6709,7 +6709,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_orgnztns_id_mmbrshps(self, id: str, filter: Optional[str] = None, member: Optional[bool] = None) -> list[Any]:
+    def get_organization_memberships(self, id: str, filter: Optional[str] = None, member: Optional[bool] = None) -> list[Any]:
         """
         Get Memberships of an Organization
 
@@ -6738,7 +6738,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_orgnztns_id_mmbrshps_i(self, id: str, idMembership: str, member: Optional[bool] = None) -> Any:
+    def get_membership_details(self, id: str, idMembership: str, member: Optional[bool] = None) -> Any:
         """
         Get a Membership of an Organization
 
@@ -6769,7 +6769,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_orgnztns_id_plgndta(self, id: str) -> list[Any]:
+    def get_organization_plugin_data_by_id(self, id: str) -> list[Any]:
         """
         Get the pluginData Scoped to Organization
 
@@ -6851,7 +6851,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_orgnztns_id_mmbrs_idmmbr(self, id: str, idMember: str, type: str) -> Any:
+    def update_member_type(self, id: str, idMember: str, type: str) -> Any:
         """
         Update a Member of an Organization
 
@@ -6883,7 +6883,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_orgnztns_id_mmbrs(self, id: str, idMember: str) -> Any:
+    def remove_organization_member(self, id: str, idMember: str) -> Any:
         """
         Remove a Member from an Organization
 
@@ -6913,7 +6913,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_orgnztns_id_mmbrs_idmm(self, id: str, idMember: str, value: bool) -> Any:
+    def deactivate_member(self, id: str, idMember: str, value: bool) -> Any:
         """
         Deactivate or reactivate a member of an Organization
 
@@ -7001,7 +7001,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def orgnztns_id_mmbrs_idmmbr_all(self, id: str, idMember: str) -> Any:
+    def delete_organization_member_all(self, id: str, idMember: str) -> Any:
         """
         Remove a Member from an Organization and all Organization Boards
 
@@ -7031,7 +7031,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_orgnztns_id_prfs_as(self, id: str) -> Any:
+    def delete_associated_domain(self, id: str) -> Any:
         """
         Remove the associated Google Apps domain from a Workspace
 
@@ -7058,7 +7058,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_orgnztns_id_prfs_or(self, id: str) -> Any:
+    def delete_org_invite_restrict_by_id(self, id: str) -> Any:
         """
         Delete the email domain restriction on who can be invited to the Workspace
 
@@ -7085,7 +7085,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_orgnztns_id_tags_idtg(self, id: str, idTag: str) -> Any:
+    def delete_organization_tag_by_id_tag(self, id: str, idTag: str) -> Any:
         """
         Delete an Organization's Tag
 
@@ -7115,7 +7115,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_orgnztns_id_nwbllblgst(self, id: str, idBoard: str) -> Any:
+    def get_guests_by_board(self, id: str, idBoard: str) -> Any:
         """
         Get Organizations new billable guests
 
@@ -7239,7 +7239,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_plgns_id_cmplnce_mmbrprvcy(self, id: str) -> Any:
+    def get_member_privacy_compliance(self, id: str) -> Any:
         """
         Get Plugin's Member privacy compliance
 
@@ -7266,7 +7266,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def put_plgns_idplgn_lstngs_id(self, idPlugin: str, idListing: str, description: Optional[str] = None, locale: Optional[str] = None, overview: Optional[str] = None, name: Optional[str] = None) -> dict[str, Any]:
+    def update_plugin_listing(self, idPlugin: str, idListing: str, description: Optional[str] = None, locale: Optional[str] = None, overview: Optional[str] = None, name: Optional[str] = None) -> dict[str, Any]:
         """
         Updating Plugin's Listing
 
@@ -7497,7 +7497,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def get_tkns_tkn_wbhks_idwbhk(self, token: str, idWebhook: str) -> dict[str, Any]:
+    def get_webhook_by_id(self, token: str, idWebhook: str) -> dict[str, Any]:
         """
         Get a Webhook belonging to a Token
 
@@ -7527,7 +7527,7 @@ class TrelloApp(APIApplication):
         except ValueError:
             return None
 
-    def delete_tkns_tkn_wbhks_idwbhk(self, token: str, idWebhook: str) -> Any:
+    def delete_webhook_by_id(self, token: str, idWebhook: str) -> Any:
         """
         Delete a Webhook created by Token
 
@@ -7777,10 +7777,10 @@ class TrelloApp(APIApplication):
             self.get_actions_id_organization,
             self.put_actions_id_text,
             self.get_actions_idaction_reactions,
-            self.post_actns_idctn_rctns,
-            self.get_actns_idctn_rctns_id,
-            self.delete_actns_idctn_rctns_id,
-            self.get_actns_idctn_rctnsmmry,
+            self.create_reaction_to_action,
+            self.get_action_reaction_by_id,
+            self.delete_reaction_by_id_action,
+            self.get_action_reactions_summary,
             self.applications_key_compliance,
             self.get_batch,
             self.get_boards_id_memberships,
@@ -7803,16 +7803,16 @@ class TrelloApp(APIApplication):
             self.put_boards_id_members,
             self.put_boards_id_members_idmember,
             self.boardsidmembersidmember,
-            self.put_brds_id_mmbrshps_idmmbrshp,
-            self.put_brds_id_myprfs_emlpstn,
-            self.put_brds_id_myprfs_idmllst,
-            self.put_brds_id_myprfs_shwsdbr,
-            self.put_brds_id_myprfs_shwsdbr,
-            self.put_brds_id_myprfs_shwsdbr,
-            self.put_brds_id_myprfs_shwsdbr,
+            self.update_membership,
+            self.update_board_email_position,
+            self.update_board_my_prefs_id_email_list,
+            self.update_board_sidebar_pref,
+            self.update_board_sidebar_pref,
+            self.update_board_sidebar_actions,
+            self.update_board_prefs_show_members,
             self.post_boards,
-            self.post_brds_id_clndrky_gnrte,
-            self.post_brds_id_emlky_gnrte,
+            self.generate_calendar_key,
+            self.generate_board_email_key,
             self.post_boards_id_idtags,
             self.post_boards_id_markedasviewed,
             self.get_boards_id_boardplugins,
@@ -7827,15 +7827,15 @@ class TrelloApp(APIApplication):
             self.get_cards_id_actions,
             self.get_cards_id_attachments,
             self.post_cards_id_attachments,
-            self.get_crds_id_attchmnts_idtt,
-            self.dltd_crds_id_attchmnts_idt,
+            self.get_attachment_by_id,
+            self.delete_attachment_by_id,
             self.get_cards_id_board,
             self.get_cards_id_checkitemstates,
             self.get_cards_id_checklists,
             self.post_cards_id_checklists,
-            self.get_crds_id_chcktm_idchcktm,
-            self.put_crds_id_chcktm_idchcktm,
-            self.delete_crds_id_chcktm_idchcktm,
+            self.check_card_item,
+            self.update_card_check_item,
+            self.delete_card_check_item,
             self.get_cards_id_list,
             self.get_cards_id_members,
             self.get_cards_id_membersvoted,
@@ -7843,24 +7843,24 @@ class TrelloApp(APIApplication):
             self.get_cards_id_plugindata,
             self.get_cards_id_stickers,
             self.post_cards_id_stickers,
-            self.get_crds_id_stckrs_idstckr,
-            self.delete_crds_id_stckrs_idstckr,
-            self.put_crds_id_stckrs_idstckr,
-            self.put_crds_id_actns_idctn_cmmnts,
-            self.delete_crds_id_actns_id_cmmnts,
-            self.put_crds_idcrd_cstmfld_idc,
+            self.get_card_sticker,
+            self.delete_sticker_by_id,
+            self.update_card_sticker_by_id_sticker,
+            self.update_card_action_comment,
+            self.delete_comment_action,
+            self.update_card_custom_field_item,
             self.put_cards_idcard_customfields,
             self.get_cards_id_customfielditems,
             self.post_cards_id_actions_comments,
             self.post_cards_id_idlabels,
             self.post_cards_id_idmembers,
             self.post_cards_id_labels,
-            self.post_crds_id_mrkssctdntfctnsrd,
-            self.delete_crds_id_idlbls_idlbl,
+            self.mark_notifications_read,
+            self.delete_card_id_label_by_id,
             self.delete_id_idmembers_idmember,
-            self.delete_crds_id_mmbrsvtd_idmmbr,
-            self.put_crds_idcrd_chcklst_idc,
-            self.delete_crds_id_chcklsts_id,
+            self.delete_card_voter,
+            self.update_check_item,
+            self.delete_checklist_by_id,
             self.post_checklists,
             self.get_checklists_id,
             self.put_checlists_id,
@@ -7871,16 +7871,16 @@ class TrelloApp(APIApplication):
             self.get_checklists_id_cards,
             self.get_checklists_id_checkitems,
             self.post_checklists_id_checkitems,
-            self.get_chcklsts_id_chcktms_id,
-            self.delete_chcklsts_id_chcktms,
+            self.get_check_item_detail,
+            self.delete_checklist_item_by_id,
             self.post_customfields,
             self.get_customfields_id,
             self.put_customfields_id,
             self.delete_customfields_id,
             self.get_customfields_id_options,
             self.post_customfields_id_options,
-            self.get_cstmflds_optns_idcstmf,
-            self.delete_cstmflds_optns_idcs,
+            self.get_custom_field_option_by_id,
+            self.delete_custom_field_option,
             self.emoji,
             self.get_enterprises_id,
             self.get_enterprises_id_auditlog,
@@ -7888,20 +7888,20 @@ class TrelloApp(APIApplication):
             self.get_enterprises_id_signupurl,
             self.get_users_id,
             self.get_enterprises_id_members,
-            self.get_entrprss_id_mmbrs_idmmbr,
-            self.get_entrprss_id_trnsfrrble,
-            self.get_entrprss_id_trnsfrrble,
-            self.put_entrprss_id_entrprsjnr,
-            self.get_entrprss_id_clmblrgnztns,
-            self.get_entrprss_id_pndngrgnztns,
+            self.get_member_details,
+            self.get_organization_transfer,
+            self.list_enterprise_transferrables_by_org_ids,
+            self.bulk_join_enterprise_requests,
+            self.list_claimable_orgs,
+            self.get_pending_organizations,
             self.post_enterprises_id_tokens,
-            self.put_entrprss_id_orgnztns,
-            self.put_entrprss_id_mmbrs_idmm,
-            self.entrprss_id_mmbrs_idmmbr_d,
-            self.put_entrprss_id_admns_idmmbr,
-            self.entrprss_id_orgnztns_idmmbr,
-            self.delete_entrprss_id_orgnztn,
-            self.get_entrprss_id_orgnztns_b,
+            self.put_enterprise_organizations_by_id,
+            self.update_enterprise_member_licensed,
+            self.deactivate_member,
+            self.update_admin_member,
+            self.delete_enterprise_admin_by_id,
+            self.delete_organization_by_id_and_org_id,
+            self.get_bulk_organizations_by_ids,
             self.get_labels_id,
             self.put_labels_id,
             self.delete_labels_id,
@@ -7922,47 +7922,47 @@ class TrelloApp(APIApplication):
             self.put_members_id,
             self.get_members_id_field,
             self.get_members_id_actions,
-            self.get_mmbrs_id_brdbckgrnds,
-            self.post_mmbrs_id_brdbckgrnds,
-            self.get_mmbrs_id_brdbckgrnds_i,
-            self.put_mmbrs_id_brdbckgrnds_i,
-            self.delete_mmbrs_id_brdbckgrnd,
+            self.get_board_backgrounds_by_id,
+            self.create_board_background,
+            self.get_member_board_backgrounds,
+            self.update_board_background,
+            self.delete_board_background_by_id,
             self.get_members_id_boardstars,
             self.post_members_id_boardstars,
-            self.get_mmbrs_id_brdstrs_idstr,
-            self.put_mmbrs_id_brdstrs_idstr,
-            self.delete_mmbrs_id_brdstrs_idstr,
+            self.get_board_star_by_id,
+            self.update_board_star_position,
+            self.delete_board_star,
             self.get_members_id_boards,
             self.get_members_id_boardsinvited,
             self.get_members_id_cards,
-            self.get_mmbrs_id_cstmbrdbckgrnds,
-            self.mmbrsdcstmbrdbckgrnds,
-            self.get_mmbrs_id_cstmbrdbckgrn,
-            self.put_mmbrs_id_cstmbrdbckgrn,
-            self.delete_mmbrs_id_cstmbrdbck,
+            self.get_custom_board_backgrounds_by_id,
+            self.set_custom_board_backgrounds,
+            self.get_custom_board_backgrounds_by_id,
+            self.update_member_custom_board_background,
+            self.delete_custom_background_by_id,
             self.get_members_id_customemoji,
             self.post_members_id_customemoji,
             self.membersidcustomemojiidemoji,
             self.get_members_id_customstickers,
             self.post_members_id_customstickers,
-            self.get_mmbrs_id_cstmstckrs_id,
-            self.delete_mmbrs_id_cstmstckrs,
+            self.get_member_custom_sticker_by_id,
+            self.delete_member_custom_sticker_by_id,
             self.get_members_id_notifications,
             self.get_members_id_organizations,
-            self.get_mmbrs_id_orgnztnsnvtd,
+            self.get_member_organizations_invited,
             self.get_members_id_savedsearches,
             self.post_members_id_savedsearches,
-            self.get_mmbrs_id_svdsrchs_idsrch,
-            self.put_mmbrs_id_svdsrchs_idsrch,
-            self.delete_mmbrs_id_svdsrchs_i,
+            self.get_saved_searches_by_id,
+            self.update_member_saved_search,
+            self.delete_saved_search,
             self.get_members_id_tokens,
             self.membersidavatar,
-            self.post_mmbrs_id_ontmmssgsdsmssd,
-            self.get_mmbrs_id_ntfctnchnnlsttngs,
-            self.put_mmbrs_id_ntfctnchnnlst,
-            self.get_mmbrs_id_ntfctnchnnlst,
-            self.put_mmbrs_id_ntfctnchnnlst,
-            self.put_mmbrs_id_ntfctnchnnlsttngs,
+            self.post_member_one_time_messages_dismissed,
+            self.get_member_notifications_channel_settings,
+            self.update_notification_channel_settings,
+            self.get_member_notification_channel_settings,
+            self.update_member_notification_channel_settings,
+            self.update_notification_settings,
             self.get_notifications_id,
             self.put_notifications_id,
             self.get_notifications_id_field,
@@ -7972,8 +7972,8 @@ class TrelloApp(APIApplication):
             self.get_notifications_id_card,
             self.get_notifications_id_list,
             self.notificationsidmember,
-            self.get_ntfctns_id_mmbrcrtr,
-            self.get_ntfctns_id_orgnztn,
+            self.get_member_creator_details,
+            self.get_notification_org,
             self.post_organizations,
             self.get_organizations_id,
             self.put_organizations_id,
@@ -7985,34 +7985,34 @@ class TrelloApp(APIApplication):
             self.get_organizations_id_exports,
             self.get_organizations_id_members,
             self.put_organizations_id_members,
-            self.get_orgnztns_id_mmbrshps,
-            self.get_orgnztns_id_mmbrshps_i,
-            self.get_orgnztns_id_plgndta,
+            self.get_organization_memberships,
+            self.get_membership_details,
+            self.get_organization_plugin_data_by_id,
             self.get_organizations_id_tags,
             self.post_organizations_id_tags,
-            self.put_orgnztns_id_mmbrs_idmmbr,
-            self.delete_orgnztns_id_mmbrs,
-            self.put_orgnztns_id_mmbrs_idmm,
+            self.update_member_type,
+            self.remove_organization_member,
+            self.deactivate_member,
             self.post_organizations_id_logo,
             self.delete_organizations_id_logo,
-            self.orgnztns_id_mmbrs_idmmbr_all,
-            self.delete_orgnztns_id_prfs_as,
-            self.delete_orgnztns_id_prfs_or,
-            self.delete_orgnztns_id_tags_idtg,
-            self.get_orgnztns_id_nwbllblgst,
+            self.delete_organization_member_all,
+            self.delete_associated_domain,
+            self.delete_org_invite_restrict_by_id,
+            self.delete_organization_tag_by_id_tag,
+            self.get_guests_by_board,
             self.get_plugins_id,
             self.put_plugins_id,
             self.post_plugins_idplugin_listing,
-            self.get_plgns_id_cmplnce_mmbrprvcy,
-            self.put_plgns_idplgn_lstngs_id,
+            self.get_member_privacy_compliance,
+            self.update_plugin_listing,
             self.get_search,
             self.get_search_members,
             self.get_tokens_token,
             self.get_tokens_token_member,
             self.get_tokens_token_webhooks,
             self.post_tokens_token_webhooks,
-            self.get_tkns_tkn_wbhks_idwbhk,
-            self.delete_tkns_tkn_wbhks_idwbhk,
+            self.get_webhook_by_id,
+            self.delete_webhook_by_id,
             self.tokenstokenwebhooks,
             self.delete_token,
             self.post_webhooks,
